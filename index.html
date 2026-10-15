@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nininha Lasso · Laços e tiaras</title>
+<meta name="description" content="Catálogo de laços e tiaras Nininha Lasso. Monte seu pedido e finalize pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   CORES E FONTES
+   ========================================================= */
+:root {
+  --fundo: #FFF4F7;
+  --papel: #FFFFFF;
+  --tinta: #3B1E2C;
+  --tinta-suave: #7A5566;
+  --framboesa: #D63C72;
+  --framboesa-escuro: #B32B5C;
+  --rosa-claro: #FBDCE6;
+  --menta: #CDEBDF;
+  --linha: #F0C9D6;
+  --sombra: 0 6px 18px rgba(120, 30, 70, 0.10);
+  --fonte-titulo: "Young Serif", Georgia, "Times New Roman", serif;
+  --fonte-texto: "Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #1E1218;
+    --papel: #2A1A22;
+    --tinta: #FBE7EF;
+    --tinta-suave: #C9A3B4;
+    --framboesa: #F0679A;
+    --framboesa-escuro: #FF85B0;
+    --rosa-claro: #432634;
+    --menta: #24433A;
+    --linha: #4D2D3C;
+    --sombra: 0 6px 18px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 16px;
+  line-height: 1.5;
+}
+img { max-width: 100%; display: block; }
+button { font-family: inherit; }
+:focus-visible { outline: 3px solid var(--framboesa); outline-offset: 2px; border-radius: 6px; }
+
+/* =========================================================
+   TOPO
+   ========================================================= */
+.topo {
+  padding: 48px 20px 28px;
+  text-align: center;
+  position: relative;
+}
+.topo .marca {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.6rem, 9vw, 4.4rem);
+  line-height: 1;
+  margin: 0;
+  color: var(--framboesa);
+  letter-spacing: -0.01em;
+}
+.topo .laco-topo { width: 74px; margin: 0 auto 10px; color: var(--framboesa); }
+.topo p {
+  margin: 14px auto 0;
+  max-width: 34ch;
+  color: var(--tinta-suave);
+  font-size: 1.05rem;
+}
+.faixa {
+  height: 14px;
+  background:
+    radial-gradient(circle at 10px 0, transparent 9px, var(--rosa-claro) 10px) 0 0 / 20px 14px repeat-x;
+}
+
+/* =========================================================
+   FILTROS
+   ========================================================= */
+.filtros {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 22px 16px 6px;
+}
+.filtro {
+  border: 2px solid var(--linha);
+  background: var(--papel);
+  color: var(--tinta);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.filtro[aria-pressed="true"] {
+  background: var(--tinta);
+  border-color: var(--tinta);
+  color: var(--fundo);
+}
+
+/* =========================================================
+   VITRINE (produtos em formato de etiqueta)
+   ========================================================= */
+main { max-width: 1100px; margin: 0 auto; padding: 16px 16px 120px; }
+.vitrine {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+  gap: 22px 16px;
+  padding-top: 18px;
+}
+.etiqueta {
+  background: var(--papel);
+  border-radius: 18px 18px 14px 14px;
+  box-shadow: var(--sombra);
+  padding: 22px 12px 14px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+/* furinho da etiqueta, como os cartões onde os laços ficam presos */
+.etiqueta::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: var(--fundo);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.15);
+}
+.foto {
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--rosa-claro);
+  display: grid;
+  place-items: center;
+  color: var(--framboesa);
+}
+.foto img { width: 100%; height: 100%; object-fit: cover; }
+.foto svg { width: 55%; }
+.etiqueta h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 400;
+  font-size: 1.08rem;
+  line-height: 1.25;
+  margin: 12px 0 2px;
+}
+.preco { font-weight: 800; font-size: 1.1rem; margin: 0 0 10px; }
+.cores { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.cor {
+  border: 2px solid var(--linha);
+  background: transparent;
+  color: var(--tinta);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.cor[aria-pressed="true"] { border-color: var(--framboesa); background: var(--rosa-claro); }
+.btn-add {
+  margin-top: auto;
+  border: 0;
+  background: var(--framboesa);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 11px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.btn-add:hover { background: var(--framboesa-escuro); }
+.btn-add.ok { background: #2E8B6B; }
+.vazio-filtro { text-align: center; color: var(--tinta-suave); padding: 40px 0; }
+
+/* =========================================================
+   BOTÃO DO CARRINHO
+   ========================================================= */
+.btn-carrinho {
+  position: fixed;
+  right: 18px;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  border: 0;
+  background: var(--tinta);
+  color: var(--fundo);
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 14px 20px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 20;
+}
+.btn-carrinho .qtd {
+  background: var(--framboesa);
+  color: #fff;
+  min-width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  padding: 0 6px;
+}
+.btn-carrinho.pulo { animation: pulo 0.35s ease; }
+@keyframes pulo { 50% { transform: scale(1.08); } }
+
+/* =========================================================
+   PAINEL DO CARRINHO
+   ========================================================= */
+.fundo-escuro {
+  position: fixed; inset: 0;
+  background: rgba(30, 10, 20, 0.45);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 30;
+}
+.painel {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(420px, 100%);
+  background: var(--papel);
+  z-index: 40;
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.aberto .fundo-escuro { opacity: 1; pointer-events: auto; }
+.aberto .painel { transform: translateX(0); }
+.painel-topo {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 20px;
+  border-bottom: 2px dashed var(--linha);
+}
+.painel-topo h2 { font-family: var(--fonte-titulo); font-weight: 400; margin: 0; font-size: 1.5rem; }
+.fechar {
+  border: 0; background: var(--rosa-claro); color: var(--tinta);
+  width: 38px; height: 38px; border-radius: 50%;
+  font-size: 1.3rem; cursor: pointer;
+}
+.painel-corpo { flex: 1; overflow-y: auto; padding: 8px 20px 20px; }
+.item {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--linha);
+}
+.item .mini {
+  width: 56px; height: 56px; border-radius: 10px; overflow: hidden;
+  background: var(--rosa-claro); display: grid; place-items: center; color: var(--framboesa);
+}
+.item .mini img { width: 100%; height: 100%; object-fit: cover; }
+.item .mini svg { width: 60%; }
+.item .nome { font-weight: 700; line-height: 1.25; }
+.item .detalhe { font-size: 0.85rem; color: var(--tinta-suave); }
+.qtd-ctrl { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.qtd-ctrl button {
+  width: 28px; height: 28px; border-radius: 8px;
+  border: 2px solid var(--linha); background: transparent; color: var(--tinta);
+  font-weight: 800; cursor: pointer;
+}
+.qtd-ctrl span { min-width: 20px; text-align: center; font-weight: 700; }
+.item .valor { font-weight: 800; text-align: right; }
+.remover {
+  display: block; margin-top: 4px; margin-left: auto;
+  border: 0; background: none; color: var(--tinta-suave);
+  font-size: 0.8rem; text-decoration: underline; cursor: pointer;
+}
+.carrinho-vazio { text-align: center; color: var(--tinta-suave); padding: 40px 10px; }
+.carrinho-vazio svg { width: 70px; margin: 0 auto 10px; color: var(--linha); }
+
+.form { margin-top: 18px; display: grid; gap: 12px; }
+.form label { font-weight: 700; font-size: 0.9rem; display: grid; gap: 4px; }
+.form input, .form textarea {
+  font-family: inherit; font-size: 1rem;
+  padding: 10px 12px; border-radius: 10px;
+  border: 2px solid var(--linha); background: var(--fundo); color: var(--tinta);
+}
+.form textarea { resize: vertical; min-height: 64px; }
+.erro { color: #C0392B; font-size: 0.85rem; font-weight: 700; min-height: 1.2em; }
+
+.painel-rodape { padding: 16px 20px 20px; border-top: 2px dashed var(--linha); }
+.total { display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 800; }
+.aviso { font-size: 0.85rem; color: var(--tinta-suave); margin: 4px 0 14px; }
+.btn-whats {
+  width: 100%; border: 0; cursor: pointer;
+  background: #1F9D55; color: #fff;
+  font-weight: 800; font-size: 1.05rem;
+  padding: 15px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.btn-whats:hover { background: #17834A; }
+.btn-whats:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-whats svg { width: 22px; height: 22px; }
+
+footer { text-align: center; color: var(--tinta-suave); font-size: 0.85rem; padding: 0 16px 100px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <svg class="laco-topo" viewBox="0 0 100 60" fill="currentColor" aria-hidden="true">
+    <path d="M50 30 C38 14 14 2 6 10 C-2 18 6 44 18 48 C30 52 42 40 50 30Z"/>
+    <path d="M50 30 C62 14 86 2 94 10 C102 18 94 44 82 48 C70 52 58 40 50 30Z"/>
+    <path d="M44 30 L34 58 L42 56 L48 36Z M56 30 L66 58 L58 56 L52 36Z"/>
+    <ellipse cx="50" cy="30" rx="8" ry="9"/>
+  </svg>
+  <h1 class="marca">Nininha Lasso</h1>
+  <p>Escolha seus laços e tiaras, monte o pedido e finalize com a gente pelo WhatsApp.</p>
+</header>
+<div class="faixa" aria-hidden="true"></div>
+
+<main>
+  <div class="filtros" id="filtros" role="group" aria-label="Filtrar por categoria"></div>
+  <section class="vitrine" id="vitrine" aria-live="polite"></section>
+</main>
+
+<footer>Os valores e o frete são confirmados no atendimento pelo WhatsApp.</footer>
+
+<button class="btn-carrinho" id="btnCarrinho" aria-label="Abrir carrinho">
+  Meu pedido <span class="qtd" id="qtdCarrinho">0</span>
+</button>
+
+<div id="areaCarrinho">
+  <div class="fundo-escuro" id="fundoEscuro"></div>
+  <aside class="painel" id="painel" role="dialog" aria-modal="true" aria-labelledby="tituloPainel">
+    <div class="painel-topo">
+      <h2 id="tituloPainel">Meu pedido</h2>
+      <button class="fechar" id="btnFechar" aria-label="Fechar carrinho">×</button>
+    </div>
+    <div class="painel-corpo">
+      <div id="listaItens"></div>
+      <div class="form" id="formCliente">
+        <label>Seu nome
+          <input type="text" id="nomeCliente" autocomplete="name" placeholder="Como podemos te chamar?">
+        </label>
+        <label>CEP para entrega
+          <input type="text" id="cepCliente" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9">
+        </label>
+        <label>Observação (opcional)
+          <textarea id="obsCliente" placeholder="Ex.: é para presente"></textarea>
+        </label>
+        <div class="erro" id="erro" role="alert"></div>
+      </div>
+    </div>
+    <div class="painel-rodape">
+      <div class="total"><span>Total dos produtos</span><span id="totalPedido">R$ 0,00</span></div>
+      <p class="aviso">O frete é calculado e enviado para você no WhatsApp.</p>
+      <button class="btn-whats" id="btnEnviar">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.2-.2-.2-.5-.4Z"/></svg>
+        Enviar pedido pelo WhatsApp
+      </button>
+    </div>
+  </aside>
+</div>
+
+<script>
+/* =========================================================
+   CONFIGURAÇÃO — EDITE AQUI
+   =========================================================
+   WHATSAPP: só números, com 55 + DDD + número.
+   Ex.: (12) 99123-4567  ->  "5512991234567"
+
+   PRODUTOS: um bloco { } para cada produto.
+   - id: um código único, sem espaço (ex.: "laco-01")
+   - nome: nome que aparece no site
+   - preco: valor com PONTO no lugar da vírgula (ex.: 12.90)
+   - categoria: "Laços" ou "Tiaras" (ou outra que você criar)
+   - imagem: caminho da foto dentro da pasta do site (ex.: "imagens/laco-01.jpg")
+             se deixar "" aparece um desenho de laço no lugar
+   - cores: lista de cores disponíveis, ou [] se não tiver variação
+   ========================================================= */
+const WHATSAPP = "5512999999999";
+
+const PRODUTOS = [
+  { id: "laco-01",  nome: "Laço de cetim clássico",   preco: 12.90, categoria: "Laços",  imagem: "", cores: ["Rosa", "Branco", "Vermelho"] },
+  { id: "laco-02",  nome: "Laço de gorgurão médio",   preco: 9.90,  categoria: "Laços",  imagem: "", cores: ["Rosa bebê", "Lilás", "Azul"] },
+  { id: "laco-03",  nome: "Laço com pérolas",         preco: 16.90, categoria: "Laços",  imagem: "", cores: [] },
+  { id: "laco-04",  nome: "Kit 3 laços pequenos",     preco: 19.90, categoria: "Laços",  imagem: "", cores: ["Sortidos"] },
+  { id: "tiara-01", nome: "Tiara de veludo",          preco: 18.90, categoria: "Tiaras", imagem: "", cores: ["Preto", "Vinho", "Verde"] },
+  { id: "tiara-02", nome: "Tiara com laço",           preco: 22.90, categoria: "Tiaras", imagem: "", cores: ["Rosa", "Bege"] },
+  { id: "tiara-03", nome: "Faixa de meia infantil",   preco: 8.90,  categoria: "Tiaras", imagem: "", cores: ["Rosa", "Branco"] }
+];
+
+/* =========================================================
+   DAQUI PRA BAIXO É O FUNCIONAMENTO (não precisa mexer)
+   ========================================================= */
+const LACO_SVG = '<svg viewBox="0 0 100 60" fill="currentColor" aria-hidden="true"><path d="M50 30 C38 14 14 2 6 10 C-2 18 6 44 18 48 C30 52 42 40 50 30Z"/><path d="M50 30 C62 14 86 2 94 10 C102 18 94 44 82 48 C70 52 58 40 50 30Z"/><path d="M44 30 L34 58 L42 56 L48 36Z M56 30 L66 58 L58 56 L52 36Z"/><ellipse cx="50" cy="30" rx="8" ry="9"/></svg>';
+const CHAVE = "nininha-carrinho";
+const fmt = v => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+let carrinho = [];
+let filtroAtual = "Todos";
+const corEscolhida = {};
+
+try { carrinho = JSON.parse(localStorage.getItem(CHAVE)) || []; } catch (e) { carrinho = []; }
+// remove itens que não existem mais no catálogo
+carrinho = carrinho.filter(i => PRODUTOS.some(p => p.id === i.id));
+
+function salvar() {
+  try { localStorage.setItem(CHAVE, JSON.stringify(carrinho)); } catch (e) {}
+}
+
+function fotoHTML(p) {
+  if (!p.imagem) return LACO_SVG;
+  return `<img src="${p.imagem}" alt="${p.nome}" loading="lazy" onerror="this.replaceWith(document.createRange().createContextualFragment(LACO_SVG))">`;
+}
+
+/* ---------- filtros ---------- */
+function montarFiltros() {
+  const cats = ["Todos", ...new Set(PRODUTOS.map(p => p.categoria))];
+  const box = document.getElementById("filtros");
+  box.innerHTML = cats.map(c =>
+    `<button class="filtro" aria-pressed="${c === filtroAtual}" data-cat="${c}">${c}</button>`
+  ).join("");
+  box.querySelectorAll(".filtro").forEach(b => b.addEventListener("click", () => {
+    filtroAtual = b.dataset.cat;
+    montarFiltros();
+    montarVitrine();
+  }));
+}
+
+/* ---------- vitrine ---------- */
+function montarVitrine() {
+  const lista = PRODUTOS.filter(p => filtroAtual === "Todos" || p.categoria === filtroAtual);
+  const vitrine = document.getElementById("vitrine");
+  if (!lista.length) {
+    vitrine.innerHTML = '<p class="vazio-filtro">Nenhum produto nessa categoria por enquanto.</p>';
+    return;
+  }
+  vitrine.innerHTML = lista.map(p => {
+    if (p.cores.length && !corEscolhida[p.id]) corEscolhida[p.id] = p.cores[0];
+    const cores = p.cores.length > 1
+      ? `<div class="cores" role="group" aria-label="Cor">${p.cores.map(c =>
+          `<button class="cor" data-id="${p.id}" data-cor="${c}" aria-pressed="${corEscolhida[p.id] === c}">${c}</button>`
+        ).join("")}</div>`
+      : (p.cores.length === 1 ? `<div class="cores"><span class="cor" aria-pressed="true">${p.cores[0]}</span></div>` : "");
+    return `
+      <article class="etiqueta">
+        <div class="foto">${fotoHTML(p)}</div>
+        <h3>${p.nome}</h3>
+        <p class="preco">${fmt(p.preco)}</p>
+        ${cores}
+        <button class="btn-add" data-id="${p.id}">Adicionar</button>
+      </article>`;
+  }).join("");
+
+  vitrine.querySelectorAll("button.cor").forEach(b => b.addEventListener("click", () => {
+    corEscolhida[b.dataset.id] = b.dataset.cor;
+    b.parentElement.querySelectorAll(".cor").forEach(x => x.setAttribute("aria-pressed", x === b));
+  }));
+  vitrine.querySelectorAll(".btn-add").forEach(b => b.addEventListener("click", () => {
+    adicionar(b.dataset.id);
+    b.textContent = "Adicionado ✓";
+    b.classList.add("ok");
+    setTimeout(() => { b.textContent = "Adicionar"; b.classList.remove("ok"); }, 1200);
+  }));
+}
+
+/* ---------- carrinho ---------- */
+function adicionar(id) {
+  const cor = corEscolhida[id] || "";
+  const existente = carrinho.find(i => i.id === id && i.cor === cor);
+  if (existente) existente.qtd++;
+  else carrinho.push({ id, cor, qtd: 1 });
+  salvar();
+  atualizarCarrinho();
+  const btn = document.getElementById("btnCarrinho");
+  btn.classList.remove("pulo"); void btn.offsetWidth; btn.classList.add("pulo");
+}
+
+function alterarQtd(idx, delta) {
+  carrinho[idx].qtd += delta;
+  if (carrinho[idx].qtd <= 0) carrinho.splice(idx, 1);
+  salvar();
+  atualizarCarrinho();
+}
+
+function total() {
+  return carrinho.reduce((s, i) => s + PRODUTOS.find(p => p.id === i.id).preco * i.qtd, 0);
+}
+
+function atualizarCarrinho() {
+  const qtd = carrinho.reduce((s, i) => s + i.qtd, 0);
+  document.getElementById("qtdCarrinho").textContent = qtd;
+  document.getElementById("totalPedido").textContent = fmt(total());
+  document.getElementById("btnEnviar").disabled = qtd === 0;
+  document.getElementById("formCliente").style.display = qtd ? "" : "none";
+
+  const box = document.getElementById("listaItens");
+  if (!carrinho.length) {
+    box.innerHTML = `<div class="carrinho-vazio">${LACO_SVG}<p>Seu pedido está vazio. Adicione um laço ou tiara para começar.</p></div>`;
+    return;
+  }
+  box.innerHTML = carrinho.map((i, idx) => {
+    const p = PRODUTOS.find(x => x.id === i.id);
+    return `
+      <div class="item">
+        <div class="mini">${fotoHTML(p)}</div>
+        <div>
+          <div class="nome">${p.nome}</div>
+          ${i.cor ? `<div class="detalhe">Cor: ${i.cor}</div>` : ""}
+          <div class="qtd-ctrl">
+            <button data-idx="${idx}" data-d="-1" aria-label="Diminuir quantidade">−</button>
+            <span>${i.qtd}</span>
+            <button data-idx="${idx}" data-d="1" aria-label="Aumentar quantidade">+</button>
+          </div>
+        </div>
+        <div>
+          <div class="valor">${fmt(p.preco * i.qtd)}</div>
+          <button class="remover" data-idx="${idx}">Remover</button>
+        </div>
+      </div>`;
+  }).join("");
+  box.querySelectorAll(".qtd-ctrl button").forEach(b =>
+    b.addEventListener("click", () => alterarQtd(+b.dataset.idx, +b.dataset.d)));
+  box.querySelectorAll(".remover").forEach(b =>
+    b.addEventListener("click", () => alterarQtd(+b.dataset.idx, -carrinho[+b.dataset.idx].qtd)));
+}
+
+/* ---------- abrir / fechar painel ---------- */
+const area = document.getElementById("areaCarrinho");
+function abrir() { area.classList.add("aberto"); document.getElementById("btnFechar").focus(); }
+function fechar() { area.classList.remove("aberto"); document.getElementById("btnCarrinho").focus(); }
+document.getElementById("btnCarrinho").addEventListener("click", abrir);
+document.getElementById("btnFechar").addEventListener("click", fechar);
+document.getElementById("fundoEscuro").addEventListener("click", fechar);
+document.addEventListener("keydown", e => { if (e.key === "Escape" && area.classList.contains("aberto")) fechar(); });
+
+/* ---------- máscara do CEP ---------- */
+document.getElementById("cepCliente").addEventListener("input", e => {
+  let v = e.target.value.replace(/\D/g, "").slice(0, 8);
+  if (v.length > 5) v = v.slice(0, 5) + "-" + v.slice(5);
+  e.target.value = v;
+});
+
+/* ---------- enviar pelo WhatsApp ---------- */
+document.getElementById("btnEnviar").addEventListener("click", () => {
+  const nome = document.getElementById("nomeCliente").value.trim();
+  const cep = document.getElementById("cepCliente").value.trim();
+  const obs = document.getElementById("obsCliente").value.trim();
+  const erro = document.getElementById("erro");
+
+  if (!nome) { erro.textContent = "Preencha seu nome para enviar o pedido."; return; }
+  if (cep.replace(/\D/g, "").length !== 8) { erro.textContent = "Preencha o CEP com 8 números para calcularmos o frete."; return; }
+  erro.textContent = "";
+
+  const linhas = carrinho.map(i => {
+    const p = PRODUTOS.find(x => x.id === i.id);
+    return `• ${i.qtd}x ${p.nome}${i.cor ? " (" + i.cor + ")" : ""} — ${fmt(p.preco * i.qtd)}`;
+  });
+
+  const msg = [
+    "Olá! Quero fazer um pedido na Nininha Lasso 🎀",
+    "",
+    ...linhas,
+    "",
+    `Total dos produtos: ${fmt(total())}`,
+    "",
+    `Nome: ${nome}`,
+    `CEP: ${cep}`,
+    obs ? `Observação: ${obs}` : "",
+    "",
+    "Aguardo o valor do frete para finalizar."
+  ].filter((l, i, arr) => !(l === "" && arr[i - 1] === "")).join("\n");
+
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank");
+});
+
+/* ---------- iniciar ---------- */
+montarFiltros();
+montarVitrine();
+atualizarCarrinho();
+</script>
+</body>
+</html>
